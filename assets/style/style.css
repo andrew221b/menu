@@ -8,6 +8,18 @@ body {
     font-family: "Roboto", Arial, sans-serif;
 }
 
+.bg-img {
+    min-height: 100vh;
+    background-color: #145f75;
+    background-image: url(../img/city-background.jpg);
+    background-size: cover;
+    background-position: center;
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+
+}
+
 .container {
     background-color: #333333;
     display: flex;
@@ -27,10 +39,11 @@ body {
 
 .button {
     border: none;
-    padding: 10px 30px;
+    padding: 15px 30px;
     background-color: #a86685;
     color: white;
-    border-radius: 20px;
+    border-radius: 30px;
+    letter-spacing: 1px;
 }
 
 
@@ -43,7 +56,7 @@ body {
     align-items: center;
     padding: 2em 2em;
     gap: 0.5em;
-    transition: background-color .35s ease;
+    transition: background-color .25s ease;
 }
 
 .navbar a:hover {
@@ -53,7 +66,8 @@ body {
 .navbar ul {
     list-style-type: none;
     position: relative;
-  letter-spacing: 1px;
+    letter-spacing: 1px;
+
 }
 
 .navbar li {
@@ -64,13 +78,14 @@ body {
     position: absolute;
     background-color: #553065;
     min-width: 240px;
+    box-shadow: hsla(297, 98%, 19%, 0.47) 0px 5px 15px;
 }
 
 .navbar__menu {
     display: flex;
 }
 
-.navbar ul > li:hover > ul {
+.navbar ul>li:hover>ul {
     display: block;
 }
 
