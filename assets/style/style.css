@@ -17,24 +17,37 @@ body {
     position: fixed;
     inset: 0;
     z-index: -1;
-
 }
 
-.container {
+.bg-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-color: #09006a;
+    opacity: 0.4;
+}
+
+header {
+    position: sticky;
+    top: 0;
+}
+
+.container-flex {
     background-color: #333333;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 10%;
+    min-height: 83px;
 }
 
-.logo {
+.header__logo {
     color: #F5D3C8;
+    font-size: 28px;
 }
 
-.logo span {
+.header__logo span {
     color: #a86685;
-
 }
 
 .button {
@@ -44,11 +57,33 @@ body {
     color: white;
     border-radius: 30px;
     letter-spacing: 1px;
+    cursor: pointer;
+    transition: .25s;
 }
 
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
 
+    50% {
+        transform: scale(1.1);
+    }
 
-.navbar a {
+    100% {
+        transform: scale(1);
+    }
+}
+
+.button:hover {
+    box-shadow: 0 0 5px #a86685,
+        0 0 20px #a86685,
+        0 0 40px #a86685;
+    animation: pulse .5s;
+    transition-delay: .05s;
+}
+
+.navbar__menu a {
     text-decoration: none;
     color: #dadada;
     display: flex;
@@ -65,9 +100,7 @@ body {
 
 .navbar ul {
     list-style-type: none;
-    position: relative;
     letter-spacing: 1px;
-
 }
 
 .navbar li {
@@ -106,6 +139,81 @@ body {
     display: none;
 }
 
-.action {}
+.navbar__menu li:hover>.navbar__submenu {
+    animation: slide-down .6s ease;
+}
 
-.navbar__item {}
+.navbar__submenu li:hover>.navbar__submenu-two {
+    animation: slide-left .6s ease;
+
+}
+
+.navbar__submenu-two li:hover>.navbar__submenu-three {
+    animation: slide-right .3s ease;
+}
+
+@keyframes slide-down {
+    0% {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes slide-left {
+    0% {
+        opacity: 0;
+        transform: translateX(18px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes slide-right {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.main-content {
+    max-width: 1150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
+    color: white;
+}
+
+p {
+    margin-bottom: 16px;
+}
+
+.footer-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-icons__link {
+    font-size: 28px;
+    color: #dadada;
+    transition: .25s;
+}
+
+.footer-icons__link:hover {
+    color: #a86685;
+    transform: scale(1.2) translateY(-5px);
+}
